@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react'
+import Header from './Components/Header'
+import ProductList from './Components/ProductList';
 function App() {
+  const[products,setProducts]=useState([
+     {
+      id:1,
+      name:'Apple iPhone XS',
+      price:251,
+      image:'https://tse2.mm.bing.net/th?id=OIP.bCpIZW6NjYsiUPvVbfMkUwHaHa&pid=Api&P=0'
+     },
+     {
+      id:2,
+      name:'Apple iPhone 12 Pro',
+      price:559,
+      image:'https://tse3.mm.bing.net/th?id=OIP.IHynKh-JiNQQcJmknQjyGAHaHa&pid=Api&P=0'
+     },
+     {
+      id:3,
+      name:'Apple iPhone X',
+      price:238,
+      image:'https://tse4.mm.bing.net/th?id=OIP.Yexv651vJH_QSGvSAa5ndAHaHa&pid=Api&P=0'
+     },
+     {
+      id:4,
+      name:'Apple iPhone 12 Pro Max',
+      price:667,
+      image:'https://tse3.mm.bing.net/th?id=OIP.IHynKh-JiNQQcJmknQjyGAHaHa&pid=Api&P=0'
+     },
+     {
+      id:5,
+      name:'Apple iPhone 11',
+      price:359,
+      image:'https://tse2.mm.bing.net/th?id=OIP.rdcYuV1EKBG6BASF6_s4TAHaIw&pid=Api&P=0'
+     },
+     {
+      id:6,
+      name:'Apple iPhone 8 Plus',
+      price:207,
+      image:'https://tse3.mm.bing.net/th?id=OIP.cYbq022pzYzDqJ8MqptgyQHaIt&pid=Api&P=0'
+     },
+    
+     
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <div className='container'>
+
+      <Header/>
+      <ProductList products={products}/>
+
+     </div>
+     
   );
 }
 
