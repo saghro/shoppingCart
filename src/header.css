@@ -1,0 +1,25 @@
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+    color: white !important;
+    font-size: 20px;
+}
+
+.cart-link i {
+    margin-right: 5px;
+}
