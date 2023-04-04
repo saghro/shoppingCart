@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Header from './Components/Header'
 import ProductList from './Components/ProductList';
 import Swal from 'sweetalert2';
-
+import './app.css'
 function App() {
   const[products,setProducts]=useState([
      {
