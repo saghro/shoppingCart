@@ -1,5 +1,6 @@
 import React from 'react'
 import ProdListItem from './ProdListItem';
+
  function ProductList({products,addToCart}) {
   return (
     <div className='row my-4'>

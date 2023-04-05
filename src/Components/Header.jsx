@@ -1,12 +1,16 @@
-import React from 'react'
+import React from 'react';
 import '../header.css';
- function Header() {
+import { Link } from 'react-router-dom';
+
+function Header({ cartItems }) {
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           Shopping Cart
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,15 +28,19 @@ import '../header.css';
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link
+                to="/"
+                className="nav-link"
+                activeClassName="active"
+              >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link cart-link" href="#">
+              <Link to="/cart" className="nav-link cart-link">
                 <i className="bi bi-cart-check"></i>
-                (0)
-              </a>
+                ({totalItems})
+              </Link>
             </li>
           </ul>
         </div>
@@ -40,4 +48,8 @@ import '../header.css';
     </nav>
   );
 }
-export default Header
+
+export default Header;
+
+
+
