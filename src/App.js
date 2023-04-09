@@ -86,7 +86,7 @@ function App() {
       <Header cartItems={cartItems} />
       <Routes>
         <Route path='/' element={<Home products={products} addToCart={addToCart} />} />
-        <Route path='/cart' element={<Cart />} />
+        <Route path='/cart' element={<Cart cartItems={cartItems} />} />
       </Routes>
     </div>
   );
