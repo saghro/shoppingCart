@@ -80,13 +80,47 @@ function App() {
       });
     }
   };
-
+const incrementQ = (item) =>{
+  let productItem = cartItems.find(product => product.id === item.id)
+  if(productItem){
+    productItem.quantity += 1;
+    setCartItems([...cartItems]);
+    Swal.fire({
+      position: 'top-end',
+        icon: 'success',
+        title: 'Your item has been updated!',
+        showConfirmButton: false,
+        timer: 1500
+    });
+  }
+}
+const decrementQ = (item) =>{
+  let productItem = cartItems.find(product => product.id === item.id)
+  if(productItem){
+    productItem.quantity -= 1;
+    if(productItem.quantity === 0){
+      setCartItems(cartItems.filter(product => product.id !== item.id));
+    }else{
+      setCartItems([...cartItems]);
+    }
+   
+    Swal.fire({
+      position: 'top-end',
+        icon: 'success',
+        title: 'Your item has been updated!',
+        showConfirmButton: false,
+        timer: 1500
+    });
+  }
+}
   return (
     <div className='container'>
       <Header cartItems={cartItems} />
       <Routes>
         <Route path='/' element={<Home products={products} addToCart={addToCart} />} />
-        <Route path='/cart' element={<Cart cartItems={cartItems} />} />
+        <Route path='/cart' element={<Cart cartItems={cartItems} incrementQ={incrementQ}
+          decrementQ={decrementQ}
+        />} />
       </Routes>
     </div>
   );

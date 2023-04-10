@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Cart.css"
-function Cart({ cartItems }) {
+function Cart({ cartItems , incrementQ , decrementQ }) {
   const totalPrice = cartItems.reduce((acc, item) => acc += item.price * item.quantity, 0);
 
   return (
@@ -33,16 +33,21 @@ function Cart({ cartItems }) {
                       {item.name}
                     </td>
                     <td>
-                      <i className="bi bi-caret-up"></i>
+                      <i  onClick={() => incrementQ(item)}
+                         style={{cursor:'pointer'}}
+                      className="bi bi-caret-up"></i>
                       <span className='mx-2'>
                         {item.quantity}
                       </span>
-                      <i className="bi bi-caret-down"></i>
+                      <i 
+                       onClick={() => decrementQ(item)}
+                         style={{cursor:'pointer'}}
+                      className="bi bi-caret-down"></i>
                     </td>
                     <td>
-                      {item.price}$
+                      ${item.price}
                     </td>
-                    <td> {item.price * item.quantity}</td>
+                    <td> ${item.price * item.quantity}</td>
                     <td><i className="bi bi-caret-x text-danger"></i></td>
 
                   </tr>
