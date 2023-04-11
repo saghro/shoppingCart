@@ -113,13 +113,23 @@ const decrementQ = (item) =>{
     });
   }
 }
+const removeFromCart = (item) => {
+  setCartItems(cartItems.filter(product => product.id !== item.id));
+  Swal.fire({
+    position: 'top-end',
+      icon: 'success',
+      title: 'Your item has been  removed',
+      showConfirmButton: false,
+      timer: 1500
+  });
+}
   return (
     <div className='container'>
       <Header cartItems={cartItems} />
       <Routes>
         <Route path='/' element={<Home products={products} addToCart={addToCart} />} />
         <Route path='/cart' element={<Cart cartItems={cartItems} incrementQ={incrementQ}
-          decrementQ={decrementQ}
+          decrementQ={decrementQ}  removeFromCart={removeFromCart}
         />} />
       </Routes>
     </div>

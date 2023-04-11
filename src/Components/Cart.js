@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Cart.css"
-function Cart({ cartItems , incrementQ , decrementQ }) {
+function Cart({ cartItems , incrementQ , decrementQ ,removeFromCart }) {
   const totalPrice = cartItems.reduce((acc, item) => acc += item.price * item.quantity, 0);
 
   return (
@@ -47,8 +47,11 @@ function Cart({ cartItems , incrementQ , decrementQ }) {
                     <td>
                       ${item.price}
                     </td>
-                    <td> ${item.price * item.quantity}</td>
-                    <td><i className="bi bi-caret-x text-danger"></i></td>
+                    <td> $ {item.price * item.quantity}</td>
+                    <td><i 
+                     onClick={() => removeFromCart(item)}
+                         style={{cursor:'pointer'}}
+                    className="bi bi-cart-x text-danger"></i></td>
 
                   </tr>
                 ))}
@@ -58,7 +61,7 @@ function Cart({ cartItems , incrementQ , decrementQ }) {
                   </th>
                   <td>
                     <span className='badge bg-danger rounded-pill'>
-                      {totalPrice.toFixed(2)}
+                      ${totalPrice.toFixed(2)}
                     </span>
                   </td>
                 </tr>
